@@ -1,15 +1,28 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core'
+import { FormBuilder } from '@angular/forms'
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.css'],
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent {
+  //declarando a var
 
-  constructor() { }
+  form: any
 
-  ngOnInit(): void {
+
+  // função > paramêtro > tipo do paramêtro private = apenas nesse componente;
+
+  constructor(private formBuilder: FormBuilder) {
+    this.criarForm();
+  }
+
+  criarForm(){
+    this.form = this.formBuilder.group({
+      email: [''],
+      senha: ['']
+    })
   }
 
 }
